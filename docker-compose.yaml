@@ -24,7 +24,7 @@ services:
    depends_on:
     - catalogue
     - user
-#     - cart
+    - cart
 #     - shipping
 #     - payment
 
@@ -44,17 +44,17 @@ services:
     - mongodb
     - redis
 
-#   cart:
-#    build: ./cart
-#    image: noorawslearning/cart:3.0.0
-#    container_name: cart
-#    environment:
-#     REDIS_HOST: redis
-#     CATALOGUE_HOST: catalogue
-#     CATALOGUE_PORT: 8080
-#    depends_on:  
-#     - catalogue
-#     - redis
+  cart:
+   build: ./cart
+   image: noorawslearning/cart:3.0.0
+   container_name: cart
+   environment:
+    REDIS_HOST: redis
+    CATALOGUE_HOST: catalogue
+    CATALOGUE_PORT: 8080
+   depends_on:  
+    - catalogue
+    - redis
 #   mysql:
 #     build: ./mysql
 #     image: noorawslearning/mysql:3.0.0
