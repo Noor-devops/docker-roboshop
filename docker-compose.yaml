@@ -10,7 +10,7 @@ services:
    image: noorawslearning/catalogue:3.0.0
    container_name: catalogue
    environment:
-    MONGO: true \
+    MONGO: true 
     MONGO_URL: "mongodb://mongodb:27017/catalogue"
    depends_on:
     - mongodb
