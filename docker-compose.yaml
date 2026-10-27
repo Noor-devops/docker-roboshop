@@ -95,8 +95,8 @@ services:
 #       RABBITMQ_DEFAULT_USER: roboshop
 #       RABBITMQ_DEFAULT_PASS: roboshop123
   
-# networks:
-#   default:
-#     name: roboshop
-#     driver: bridge
-#     external: false
+networks:
+  default:
+    name: roboshop
+    driver: bridge
+    external: false
