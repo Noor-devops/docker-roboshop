@@ -1,0 +1,102 @@
+name: roboshop
+services:
+  mongodb:
+   build: ./mongodb
+   image: noorawslearning/mongodb:3.0.0 
+   container_name: mongodb
+
+#   catalogue:
+#    build: ./catalogue
+#    image: noorawslearning/catalogue:3.0.0
+#    container_name: catalogue
+#    environment:
+#     MONGO: true \
+#     MONGO_URL: "mongodb://mongodb:27017/catalogue"
+#    depends_on:
+#     - mongodb
+
+#   frontend:
+#    build: ./frontend
+#    image: noorawslearning/frontend:3.0.0
+#    container_name: frontend
+#    ports:
+#     - "80:80"
+#    depends_on:
+#     - catalogue
+#     - user
+#     - cart
+#     - shipping
+#     - payment
+
+#   redis:
+#     image: redis:7
+#     container_name: redis
+
+#   user:
+#    build: ./user
+#    image: noorawslearning/user:3.0.0
+#    container_name: user
+#    environment:
+#     MONGO: true 
+#     MONGO_URL: "mongodb://mongodb:27017/user" 
+#     REDIS_URL: "redis://redis:6379"
+#    depends_on:
+#     - mongodb
+#     - redis
+
+#   cart:
+#    build: ./cart
+#    image: noorawslearning/cart:3.0.0
+#    container_name: cart
+#    environment:
+#     REDIS_HOST: redis
+#     CATALOGUE_HOST: catalogue
+#     CATALOGUE_PORT: 8080
+#    depends_on:  
+#     - catalogue
+#     - redis
+#   mysql:
+#     build: ./mysql
+#     image: noorawslearning/mysql:3.0.0
+#     container_name: mysql
+#     command: --mysql-native-password=ON --innodb-lock_wait_timeout=120
+#     environment:
+#       MYSQL_ROOT_PASSWORD: "RoboShop@1"
+#   shipping:
+#     build: ./shipping
+#     image: noorawslearning/shipping:3.0.0
+#     container_name: shipping
+#     environment:
+#       CART_ENDPOINT: "cart:8080"
+#       DB_HOST: mysql
+#     depends_on:
+#     - mysql
+#     - cart
+#   payment:
+#     build: ./payment
+#     image: noorawslearning/payment:3.0.0
+#     container_name: payment
+#     environment:
+#       CART_HOST: "cart"
+#       CART_PORT: 8080
+#       USER_HOST: user
+#       USER_PORT: 8080
+#       AMQP_HOST: rabbitmq
+#       AMQP_USER: roboshop
+#       AMQP_PASS: roboshop123
+#     depends_on:
+#     - cart
+#     - rabbitmq
+#     - user
+#   rabbitmq:
+#     image: rabbitmq:3
+#     container_name: rabbitmq
+#     environment:
+#       RABBITMQ_DEFAULT_USER: roboshop
+#       RABBITMQ_DEFAULT_PASS: roboshop123
+  
+# networks:
+#   default:
+#     name: roboshop
+#     driver: bridge
+#     external: false
