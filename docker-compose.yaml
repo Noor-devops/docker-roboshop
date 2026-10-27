@@ -63,7 +63,8 @@ services:
     build: ./mysql
     image: noorawslearning/mysql:3.0.0
     container_name: mysql
-    command: --mysql-native-password=ON --innodb-lock_wait_timeout=120
+    #command: --mysql-native-password=ON --innodb-lock_wait_timeout=120
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: "RoboShop@1"
     volumes:
