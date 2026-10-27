@@ -1,4 +1,5 @@
-uwsgi
+#uwsgi
+pyuwsgi
 Flask
 requests
 pika
