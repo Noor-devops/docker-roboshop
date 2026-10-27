@@ -23,26 +23,26 @@ services:
     - "80:80"
    depends_on:
     - catalogue
-#     - user
+    - user
 #     - cart
 #     - shipping
 #     - payment
 
-#   redis:
-#     image: redis:7
-#     container_name: redis
+  redis:
+    image: redis:7
+    container_name: redis
 
-#   user:
-#    build: ./user
-#    image: noorawslearning/user:3.0.0
-#    container_name: user
-#    environment:
-#     MONGO: true 
-#     MONGO_URL: "mongodb://mongodb:27017/user" 
-#     REDIS_URL: "redis://redis:6379"
-#    depends_on:
-#     - mongodb
-#     - redis
+  user:
+   build: ./user
+   image: noorawslearning/user:3.0.0
+   container_name: user
+   environment:
+    MONGO: true 
+    MONGO_URL: "mongodb://mongodb:27017/user" 
+    REDIS_URL: "redis://redis:6379"
+   depends_on:
+    - mongodb
+    - redis
 
 #   cart:
 #    build: ./cart
